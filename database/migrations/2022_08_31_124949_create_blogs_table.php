@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('conteudo');
-            $table->string('imagem');
-            $table->integer('visualizacoes');
+            $table->string('imagem')->nullable();
+            $table->integer('visualizacoes')->default(1);
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\PainelController;
 use App\Http\Controllers\PaginasController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,15 @@ Route::name('sistema.')->group(function () {
                 Route::get('/edicao/{pagina}', [PaginasController::class, 'edicao'])->name("paginas.edicao");
                 Route::post('/salvar/{pagina}', [PaginasController::class, 'salvar'])->name("paginas.salvar");
                 Route::post('/deletar', [PaginasController::class, 'deletar'])->name("paginas.deletar");
+            });
+
+            Route::prefix('blogs')->group(function () {    
+                Route::get('/consultar', [BlogsController::class, 'consultar'])->name("blogs.consultar");
+                Route::get('/cadastro', [BlogsController::class, 'cadastro'])->name("blogs.cadastro");
+                Route::post('/cadastrar', [BlogsController::class, 'cadastrar'])->name("blogs.cadastrar");
+                Route::get('/edicao/{blog}', [BlogsController::class, 'edicao'])->name("blogs.edicao");
+                Route::post('/salvar/{blog}', [BlogsController::class, 'salvar'])->name("blogs.salvar");
+                Route::post('/deletar', [BlogsController::class, 'deletar'])->name("blogs.deletar");
             });
 
         });

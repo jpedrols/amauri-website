@@ -122,7 +122,7 @@
                                             <div class="col-lg-12">
                                                 <div class="d-flex flex-wrap">
                                                     <a href="{{ route('sistema.paginas.consultar') }}" class="dropdown-item" key="t-alerts">Páginas</a>
-                                                    <a href="#" class="dropdown-item" key="t-buttons">Blog</a>
+                                                    <a href="{{ route('sistema.blogs.consultar') }}" class="dropdown-item" key="t-buttons">Blog</a>
                                                     <a href="#" class="dropdown-item" key="t-buttons">Amauri Responde</a>
                                                 </div>
                                             </div>

@@ -16,9 +16,7 @@ class PaginasController extends Controller
     }
 
     public function cadastro() {
-        $categorias = Categoria::all();
-
-        return view('sistema.paginas.cadastro', ['categorias' => $categorias]);
+        return view('sistema.paginas.cadastro');
     }
 
     public function cadastrar(Request $request) {
@@ -34,9 +32,7 @@ class PaginasController extends Controller
     }
 
     public function edicao(Pagina $pagina) {
-        $categorias = Categoria::all();
-
-        return view('sistema.paginas.edicao', ['categorias' => $categorias, 'pagina' => $pagina]);
+        return view('sistema.paginas.edicao', ['pagina' => $pagina]);
     }
 
     public function salvar(Pagina $pagina, Request $request) {
