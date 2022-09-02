@@ -55,6 +55,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br><br>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card mini-stats-wid">
@@ -122,17 +123,37 @@
                                         <h4 class="card-title mb-4">#AmauriResponde</h4>
                                         <hr>
                                         <div class="d-flex" style="justify-content: space-between">
-                                            @foreach ($amauri_responde as $video)
+                                            @if($albuns->count() > 0)
+                                                @foreach ($amauri_responde as $video)
+                                                    <div class="col-lg-5">
+                                                        <div class="card plan-box">
+                                                            <div class="card-body p-4">
+                                                                <div class="media">
+                                                                    <div class="media-body">
+                                                                        <h5>{{ $video->titulo }}</h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="py-4 text-center">
+                                                                    <img style="max-width: 20%; height: auto;" src="{{ asset($video->imagem) }}">
+                                                                </div>
+                                                                <div class="text-center plan-btn">
+                                                                    <a href="{{ route('sistema.amauri_responde.edicao', ['amauri_responde' => $video]) }}" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @else
                                                 <div class="col-lg-5">
                                                     <div class="card plan-box">
                                                         <div class="card-body p-4">
                                                             <div class="media">
                                                                 <div class="media-body">
-                                                                    <h5>{{ $video->titulo }}</h5>
+                                                                    <h5>N/A</h5>
                                                                 </div>
                                                             </div>
                                                             <div class="py-4 text-center">
-                                                                <img style="max-width: 20%; height: auto;" src="{{ asset($video->imagem) }}">
+                                                                <img style="max-width: 20%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
                                                             </div>
                                                             <div class="text-center plan-btn">
                                                                 <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
@@ -140,7 +161,25 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endforeach
+
+                                                <div class="col-lg-5">
+                                                    <div class="card plan-box">
+                                                        <div class="card-body p-4">
+                                                            <div class="media">
+                                                                <div class="media-body">
+                                                                    <h5>N/A</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="py-4 text-center">
+                                                                <img style="max-width: 20%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
+                                                            </div>
+                                                            <div class="text-center plan-btn">
+                                                                <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -155,17 +194,37 @@
                                         <h4 class="card-title mb-4">Álbuns</h4>
                                         <hr>
                                         <div class="d-flex" style="justify-content: space-between">
-                                            @foreach ($albuns as $album)
+                                            @if($albuns->count() > 0)
+                                                @foreach ($albuns as $album)
+                                                    <div class="col-lg-5">
+                                                        <div class="card plan-box">
+                                                            <div class="card-body p-4">
+                                                                <div class="media">
+                                                                    <div class="media-body">
+                                                                        <h5>{{ $album->titulo }}</h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="py-4 text-center">
+                                                                    <img style="max-width: 20%; height: auto" src="{{ asset($album->thumb) }}">
+                                                                </div>
+                                                                <div class="text-center plan-btn">
+                                                                    <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @else
                                                 <div class="col-lg-5">
                                                     <div class="card plan-box">
                                                         <div class="card-body p-4">
                                                             <div class="media">
                                                                 <div class="media-body">
-                                                                    <h5>{{ $album->titulo }}</h5>
+                                                                    <h5>N/A</h5>
                                                                 </div>
                                                             </div>
                                                             <div class="py-4 text-center">
-                                                                <img style="max-width: 20%; height: auto" src="{{ asset($album->thumb) }}">
+                                                                <img style="max-width: 20%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
                                                             </div>
                                                             <div class="text-center plan-btn">
                                                                 <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
@@ -173,7 +232,26 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endforeach
+
+                                                <div class="col-lg-5">
+                                                    <div class="card plan-box">
+                                                        <div class="card-body p-4">
+                                                            <div class="media">
+                                                                <div class="media-body">
+                                                                    <h5>N/A</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="py-4 text-center">
+                                                                <img style="max-width: 20%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
+                                                            </div>
+                                                            <div class="text-center plan-btn">
+                                                                <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                            
                                         </div>
                                     </div>
                                 </div>
