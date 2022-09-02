@@ -29,7 +29,13 @@
                                         <tbody>
                                             @foreach ($blogs as $blog)
                                                 <tr>
-                                                    <td><img src="{{ asset($blog->imagem) }}" alt="" class="avatar-md h-auto d-block rounded"></td>
+                                                    <td>
+                                                        @if(is_null($blog->imagem))
+                                                            <img src="{{asset('sistema/imagens/thumb-padrao.png')}}" alt="" class="avatar-md h-auto d-block rounded"></td>
+                                                        @else 
+                                                        <img src="{{ asset($blog->imagem) }}" alt="" class="avatar-md h-auto d-block rounded"></td>
+                                                        @endif
+                                                        
                                                     <td>{{ $blog->titulo }}</td>
                                                     <td>{{ $blog->visualizacoes }}</td>
                                                     <td>

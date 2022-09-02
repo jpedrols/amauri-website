@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\PainelController;
 use App\Http\Controllers\PaginasController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::name('site.')->group(function () {
-    Route::get('/', function () { return view('site.index');})->name('index');
-    
+    Route::get('/', [SiteController::class, 'index'])->name("index");
 
+    Route::get('/A-Empresa', [SiteController::class, 'sobre_nos'])->name("sobre_nos");
     // Route::get('/', 'App\Http\Controllers\GeralController@inicio')->name('inicio');
 });
 
@@ -32,7 +33,8 @@ Route::name('sistema.')->group(function () {
         Route::get('/sair', [PainelController::class, 'sair'])->name("sair");
 
         Route::middleware(['sistema'])->group(function () {
-
+            
+            Route::get('/', [PainelController::class, 'dashboard'])->name("dashboard");
             Route::get('/dashboard', [PainelController::class, 'dashboard'])->name("dashboard");
 
             Route::prefix('paginas')->group(function () {    

@@ -1,5 +1,7 @@
 /node_modules
 /public/build
+/public/sistema/imagens/blogs
+/public/sistema/imagens/usuarios
 /public/hot
 /public/storage
 /storage/*.key

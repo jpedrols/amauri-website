@@ -23,17 +23,17 @@
 
     <body>
 
-        <div class="account-pages my-5 pt-sm-5">
+        <div class="account-pages my-4 pt-sm-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5">
                         <div class="card overflow-hidden">
-                            <div class="bg-primary bg-soft">
+                            <div class="bg-primary" style="background-color: #191a20 !important;">
                                 <div class="row">
                                     <div class="col-7">
                                         <div class="text-primary p-4">
-                                            <h5 class="text-primary">Acesso sistema</h5>
-                                            <p>Todas as tentativas de login estão sendo monitoradas.</p>
+                                            <h5 class="text-primary" style="color: white !important;">Acesso sistema</h5>
+                                            <p style="color: white !important;">Todas as tentativas de login estão sendo monitoradas.</p>
                                         </div>
                                     </div>
                                     <div class="col-5 align-self-end">

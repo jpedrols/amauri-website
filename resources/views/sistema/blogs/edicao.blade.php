@@ -34,42 +34,51 @@
                             <div class="card-body">
                                 <h4 class="card-title mb-4">Edição de Páginas</h4>
                                 
-                                <form id="cadastro" action="{{ route('sistema.paginas.salvar', ['pagina' => $pagina]) }}" method="POST">
+                                <form id="cadastro" action="{{ route('sistema.blogs.salvar', ['blog' => $blog]) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">Nome da Página</label>
-                                                <input disabled type="text" name="nome" class="form-control" value="{{ $pagina->nome }}">
-                                            </div>
-
+                                        <div class="col-lg-6 mb-3">
                                             <div class="mb-3">
                                                 <label class="form-label">Título</label>
-                                                <input required type="text" name="titulo" class="form-control" value="{{ $pagina->titulo }}">
+                                                <input required type="text" name="titulo" class="form-control" value="{{ $blog->titulo }}">
+                                            </div>
+
+                                            <label class="form-label">Categorias</label>
+                                            <select required class="form-control" name="categoria_id">
+                                                <option>Selecione</option>
+                                                @foreach ($categorias as $categoria)
+                                                    <option @if($categoria->id == $blog->categoria_id) selected @endif value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-lg-6 mb-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Data</label>
+                                                <input disabled type="text" value="{{ date('d/m/Y', strtotime($blog->created_at)) }}" class="form-control">
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-6 mb-3">
-                                            <div class="mb-3">
-                                                <label class="form-label">Categorias</label>
-                                                <select required class="form-control" name="categoria_id">
-                                                    <option>Selecione</option>
-                                                    @foreach ($categorias as $categoria)
-                                                        <option @if($categoria->id == $pagina->categoria_id) selected @endif value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
-                                                    @endforeach
-                                                </select>
+                                        <div class="row">
+                                            <div class="col-12 text-center">
+                                                @if(is_null($blog->imagem))
+                                                    <img class="escolher_imagem" id="foto-preview" src="{{asset('sistema/imagens/thumb-padrao.png')}}" style="max-height: 200px;" alt="">
+                                                @else 
+                                                    <img class="escolher_imagem" id="foto-preview" src="{{asset($blog->imagem)}}" style="max-height: 200px;" alt="">
+                                                @endif
                                             </div>
-
-                                            <div class="mb-3">
-                                                <label class="form-label">Data</label>
-                                                <input disabled type="text" value="{{ date('d/m/Y', strtotime($pagina->created_at)) }}" class="form-control">
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 text-center">
+                                                <label class="btn btn-primary" for="foto-upload">Escolher</label>
+                                                <input name="imagem" id="foto-upload" style="display: none" type="file">
                                             </div>
                                         </div>
 
                                         <div class="col-lg-12">
                                             <label class="form-label">Conteúdo</label>
                                             <textarea required id="editor" name="conteudo">
-                                                {{ $pagina->conteudo }}
+                                                {{ $blog->conteudo }}
                                             </textarea>
                                         </div>
                                     </div>
@@ -96,8 +105,20 @@
                 ClassicEditor
                     .create( document.querySelector( '#editor' ) )
                     .catch( error => {
-                        console.error( error );
-                    } );
+                    console.error( error );
+                } );
+
+                $(document).ready(function(){
+                var inp = document.getElementById('foto-upload');
+                inp.addEventListener('change', function(e){
+                    var file = this.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function(){
+                        document.getElementById('foto-preview').src = this.result;
+                        };
+                    reader.readAsDataURL(file);
+                },false);
+            });
             </script>
         @endsection
     </div>

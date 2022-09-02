@@ -14,7 +14,7 @@
 <div class="page-header--image" data-padding data-overlay>
     <!--  you can set a background instead of an img: ex (<div class="imagebg" style="background-image: url(assets/img/header-home@2x.jpg);">)  -->
     <div class="imagebg">
-        <img data-unveil src="#" data-src="assets/img/header-home.jpg" data-src-retina="assets/img/header-home@2x.jpg" alt=""/>
+        <img data-unveil src="#" data-src="{{ asset('site/assets/img/header-home.jpg') }}" data-src-retina="{{ asset('site/assets/img/header-home@2x.jpg') }}" alt=""/>
     </div>
     <div class="container">
         <div class="row">
@@ -150,144 +150,9 @@
             </div>
         </div>
     </section>
-    <!--  END: Separator  -->
-    <!--  Info Section  -->
-    <section data-padding="bottom">
-        <div class="container">
-            <div class="row align-items-lg-center">
-                <div data-aos="zoom-in" class="col-12 col-lg-5">
-                    <div class="square-element">
-                        <div class="info">
-                            <div class="image">
-                                <img
-                                    data-unveil
-                                    src="#"
-                                    data-src="assets/img/homeagency-section-1.png"
-                                    data-src-retina="assets/img/homeagency-section-1@2x.png"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    data-aos="fade-in"
-                    data-aos-delay="200"
-                    class="col-12 col-lg-6"
-                >
-                    <div class="sectiontitle-element">
-                        <span class="toptitle">Sobre nós</span>
-                        <h2>
-                            Cuidamos da contabilidade do seu negócio como se fosse a nossa!
-                        </h2>
-                        <p>
-                            Nosso objetivo é simplificar e reduzir a burocracia no mundo contábil para você, pois queremos que você dedique sua energia à gestão de sua empresa. Temos uma equipe qualificada com atendimento rápido e personalizado oferecendo soluções eficientes para micro empresas até grandes corporações.
-                        </p>
-                        <a href="#" class="btn--big--arrow--round"
-                            >Leia mais</a
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--  END: Info Section  -->
-    <!--  List Section  -->
-    <section id="solucoes" data-padding="top" data-bg="grey">
-        <div class="container">
-            <div data-aos="fade-up" class="row">
-                <div class="col-12">
-                    <div class="sectiontitle-element--center">
-                        <h2>
-                            Conheça nossas soluções:
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-padding>
-                <div
-                    data-aos="fade-in"
-                    data-aos-delay="100"
-                    class="col-12 col-xs-4 col-sm-4"
-                >
-                    <div class="list-element--plus">
-                        <p class="md f500"></p>
-                        <ul>
-                            <li>Processamento contábil</li>
-                            <li>Análise tributária  </li>
-                            <li>Emissão de certificados digitais online</li>
-                        </ul>
-                    </div>
-                </div>
-                <div
-                    data-aos="fade-in"
-                    data-aos-delay="200"
-                    class="col-12 col-xs-4 col-sm-4"
-                >
-                    <div class="list-element--plus">
-                        <p class="md f500"></p>
-                        <ul>
-                            <li>Certidão Federal</li>
-                            <li>Certidão Estadual/MG</li>
-                        </ul>
-                    </div>
-                </div>
-                <div
-                    data-aos="fade-in"
-                    data-aos-delay="300"
-                    class="col-12 col-xs-4 col-sm-4"
-                >
-                    <div class="list-element--plus">
-                        <p class="md f500"></p>
-                        <ul>
-                            <li>Consulta FGTS</li>
-                            <li>Certidão Trabalhista</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--  END: List Section  -->
-    <!--  Video Section  -->
-    <section data-bg-top="grey" style="margin-bottom: 100px;">
-        <div class="container">
-            <div class="row">
-                <div
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                    class="col-12"
-                >
-                    <div
-                        class="rectangle-element--caption--center--vertical--big"
-                    >
-                        <div class="info">
-                            <div class="image">
-                                <img
-                                    data-unveil
-                                    src="#"
-                                    data-src="assets/img/studio-placeholder.jpg"
-                                    data-src-retina="assets/img/studio-placeholder@2x.jpg"
-                                    alt=""
-                                />
-                                <div
-                                    class="icon--xl--white--shadow--round--white"
-                                >
-                                    <i class="fas fa-play"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <a
-                            href="javscript:void(0)"
-                            class="link yt-video"
-                            data-videoID="rYXjsGPP4jo"
-                        ></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--  END: Video Section  -->
+    @include('site.includes.include_sobre_nos')
+    @include('site.includes.include_solucoes')
+    @include('site.includes.include_video')
     <!--  Portfólio  -->
     <!-- <section data-aos="fade" data-padding>
         <div class="container">
@@ -497,7 +362,6 @@
         </div>
     </section> -->
     <!--  END: Portfólio  -->
-    <!--  Testimonial Section  -->
     <section data-padding data-bg="template">
         <div class="container">
             <div class="row align-items-md-center">
@@ -519,8 +383,8 @@
                                     class="logo"
                                     data-unveil
                                     src="#"
-                                    data-src="assets/img/Logo.png"
-                                    data-src-retina="assets/img/logo-placeholder-2.png"
+                                    data-src="{{ asset('site/assets/img/Logo.png') }}"
+                                    data-src-retina="{{ asset('site/assets/img/logo-placeholder-2.png') }}"
                                     alt=""
                                 />
                             </div>
@@ -536,8 +400,8 @@
                         <img
                             data-unveil
                             src="#"
-                            data-src="assets/img/author-big.jpg"
-                            data-src-retina="assets/img/author-big@2x.jpg"
+                            data-src="{{ asset('site/assets/img/author-big.jpg') }}"
+                            data-src-retina="{{ asset('site/assets/img/author-big@2x.jpg') }}"
                             alt=""
                         />
                     </div>
@@ -545,194 +409,10 @@
             </div>
         </div>
     </section>
-    <!--  END: Testimonial Section  -->
-    <!--  Blog Section  -->
-    <section id="blog" data-padding>
-        <div class="container">
-            <div data-aos="fade" class="row">
-                <div class="col-12">
-                    <div
-                        class="sectiontitle-element--inline align-items-md-end"
-                    >
-                        <div class="wrapper">
-                            <span class="toptitle">Nosso Blog</span>
-                            <h2>
-                                Fique atualizado sobre todas as
-                                notícias
-                            </h2>
-                        </div>
-                        <div class="wrapper">
-                            <a
-                                href="#"
-                                class="btn--big--round"
-                                >Ver tudo</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" data-padding="xstop">
-                <div
-                    data-aos="fade"
-                    data-aos-delay="100"
-                    class="col-12 col-md-4"
-                >
-                    <!--  Single Article  -->
-                    <article
-                        class="rectangle-element--article--wide">
-                        <div class="info">
-                            <div class="image">
-                                <img
-                                    data-unveil
-                                    src="#"
-                                    data-src="assets/img/post-1.jpg"
-                                    data-src-retina="assets/img/post-1@2x.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="text">
-                                <div class="meta--image">
-                                    <div class="tags">
-                                        <time
-                                            class="e-date"
-                                            datetime="2020-07-05T07:55:21+02:00"
-                                            >30 de Abril, 2021</time
-                                        >
-                                    </div>
-                                </div>
-                                <h3>
-                                    PROGRAMA DE REDUÇÃO E SUSPENSÃO DE JORNADA ESTÁ DE VOLTA!
-                                </h3>
-                                <p>
-                                    Fique por dentro das novas medidas para o enfrentamento dos efeitos econômicos..
-                                </p>
-                                <a
-                                    href="post.html"
-                                    class="simple--underline"
-                                    >Ver mais</a
-                                >
-                            </div>
-                        </div>
-                        <a href="post.html" class="link"></a>
-                    </article>
-                    <!--  END: Single Article  -->
-                </div>
-                <div
-                    data-aos="fade"
-                    data-aos-delay="200"
-                    class="col-12 col-md-4"
-                >
-                    <article
-                        class="rectangle-element--article--wide">
-                        <div class="info">
-                            <div class="image">
-                                <img
-                                    data-unveil
-                                    src="#"
-                                    data-src="assets/img/post-2.jpg"
-                                    data-src-retina="assets/img/post-1@2x.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="text">
-                                <div class="meta--image">
-                                    <div class="tags">
-                                        <time
-                                            class="e-date"
-                                            datetime="2020-07-05T07:55:21+02:00"
-                                            >29 de Abril, 2021</time
-                                        >
-                                    </div>
-                                </div>
-                                <h3>
-                                    NOVO PROGRAMA EMERGENCIAL DE MANUTENÇÃO DO EMPREGO E DA RENDA
-                                </h3>
-                                <p>
-                                    Conheça as novas medidas do Programa Emergencial de Manutenção do Emprego e da Renda.
-                                </p>
-                                <a
-                                    href="post.html"
-                                    class="simple--underline"
-                                    >Ver mais</a
-                                >
-                            </div>
-                        </div>
-                        <a href="post.html" class="link"></a>
-                    </article>
-                </div>
-                <div
-                    data-aos="fade"
-                    data-aos-delay="300"
-                    class="col-12 col-md-4"
-                >
-                    <article
-                        class="rectangle-element--article--wide">
-                        <div class="info">
-                            <div class="image">
-                                <img
-                                    data-unveil
-                                    src="#"
-                                    data-src="assets/img/post-3.jpg"
-                                    data-src-retina="assets/img/post-3@2x.jpg"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="text">
-                                <div class="meta--image">
-                                    <div class="tags">
-                                        <time
-                                            class="e-date"
-                                            datetime="2020-07-05T07:55:21+02:00"
-                                            >25 de Março, 2021</time
-                                        >
-                                    </div>
-                                </div>
-                                <h3>
-                                    CONECTIVIDADE SOCIAL - REVOGAÇÃO DE ACESSO PELA CHAVE PRI
-                                </h3>
-                                <p>
-                                    Para transmitir as informações da folha de pagamento ao FGTS era utilizado uma chave digital chamada “CHAVE..
-                                </p>
-                                <a
-                                    href="post.html"
-                                    class="simple--underline"
-                                    >Ver mais</a
-                                >
-                            </div>
-                        </div>
-                        <a href="post.html" class="link"></a>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--  END: Blog Section  -->
-    <!--  CTA Section  -->
-    <section id="contato" data-aos="fade" data-padding="xstop">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div
-                        class="ctabox-element--center--round--light"
-                    >
-                        <div class="text">
-                            <h2>
-                                Ainda tem alguma dúvida?
-                            </h2>
-                            <p>Entre em contato com a gente</p>
-                            <a
-                                href=""
-                                class="btn--big--border--light--round"
-                                target="_self"
-                                >Entre em contato</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--  END: CTA Section  -->
+    
+    @include('site.includes.include_blog')
+
+    @include('site.includes.include_contato')
 </div>
 <!--  END: Page Content  -->
 

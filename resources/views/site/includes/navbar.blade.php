@@ -9,12 +9,12 @@
                     <picture class="colored">
                         <source
                             srcset="
-                                assets/img/Logo@2x.png 2x,
-                                assets/img/Logo.png    1x
+                            {{ asset('site/assets/img/Logo@2x.png 2x') }},
+                            {{ asset('site/assets/img/Logo.png') }}    1x
                             "
                             type="image/png"
                         />
-                        <img src="assets/img/Logo.png" alt="Logo" />
+                        <img src="{{ asset('site/assets/img/Logo.png') }}" alt="Logo" />
                     </picture>
                 </a>
             </div>
