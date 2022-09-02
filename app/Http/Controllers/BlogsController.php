@@ -53,7 +53,10 @@ class BlogsController extends Controller
         $blog->save();
 
         if($request->file("imagem")){
-            Storage::delete($blog->imagem);
+
+            if(!is_null($blog->imagem)) {
+                Storage::delete($blog->imagem);
+            }
 
             Blog::find($blog->id)
             ->update(['imagem' => 'sistema/imagens/blogs/'.$blog->id.'/'.$request->file('imagem')->getClientOriginalName()]);

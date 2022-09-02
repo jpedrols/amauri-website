@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\DestaquesController;
 use App\Http\Controllers\PainelController;
 use App\Http\Controllers\PaginasController;
 use App\Http\Controllers\SiteController;
@@ -18,10 +19,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::name('site.')->group(function () {
-    Route::get('/', [SiteController::class, 'index'])->name("index");
+    Route::middleware(['site'])->group(function () {
+        Route::get('/', [SiteController::class, 'index'])->name("index");
 
-    Route::get('/A-Empresa', [SiteController::class, 'sobre_nos'])->name("sobre_nos");
-    // Route::get('/', 'App\Http\Controllers\GeralController@inicio')->name('inicio');
+        Route::get('/A-Empresa', [SiteController::class, 'sobre_nos'])->name("sobre_nos");
+        // Route::get('/', 'App\Http\Controllers\GeralController@inicio')->name('inicio');
+    });
 });
 
 
@@ -53,6 +56,10 @@ Route::name('sistema.')->group(function () {
                 Route::get('/edicao/{blog}', [BlogsController::class, 'edicao'])->name("blogs.edicao");
                 Route::post('/salvar/{blog}', [BlogsController::class, 'salvar'])->name("blogs.salvar");
                 Route::post('/deletar', [BlogsController::class, 'deletar'])->name("blogs.deletar");
+            });
+
+            Route::prefix('destaques')->group(function () {    
+                Route::get('/consultar', [DestaquesController::class, 'consultar'])->name("destaques.consultar");
             });
 
         });

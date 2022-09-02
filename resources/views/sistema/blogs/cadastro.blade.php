@@ -34,7 +34,7 @@
                             <div class="card-body">
                                 <h4 class="card-title mb-4">Cadastro de Blog</h4>
                                 
-                                <form id="cadastro" action="{{ route('sistema.blogs.cadastrar') }}" method="POST">
+                                <form id="cadastro" action="{{ route('sistema.blogs.cadastrar') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-lg-6">

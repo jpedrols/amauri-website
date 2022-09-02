@@ -5,7 +5,7 @@
             <!--  Header Logo  -->
             <!--  class: height-sm, height-md, height-lg  -->
             <div id="logo" class="height-lg">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{{ route('site.index') }}">
                     <picture class="colored">
                         <source
                             srcset="
@@ -78,7 +78,7 @@
                                 <div class="dropdown-inner">
                                     <ul>
                                         <li>
-                                            <a href="index.html"
+                                            <a href="{{ route('site.index') }}"
                                                 >Home Agência</a
                                             >
                                         </li>

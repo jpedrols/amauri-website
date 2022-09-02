@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pagina extends Model
+class Destaque extends Model
 {
     use HasFactory;
 
-    public function destaques()
+    public function paginas()
     {
-        return $this->hasMany(Destaque::class);
+        return $this->belongsTo(Pagina::class);
     }
 }
