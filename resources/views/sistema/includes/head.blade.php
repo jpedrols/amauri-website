@@ -16,4 +16,25 @@
     <link href="{{ asset('sistema/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
     @yield('styles')
+
+    <style>        
+        @-webkit-keyframes rotating {
+            from{
+                -webkit-transform: rotate(0deg);
+            }
+            to{
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        .rotating {
+            -webkit-animation: rotating 1s linear infinite;
+        }
+    </style>
 </head>
+
+<div id="spinner" style="overflow: hidden; z-index: 1000; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: white; text-align: center">
+    <div style="margin-top: 20%;" class="rotating">
+        <img src="{{ asset('site/assets/img/favicon.ico') }}" style="max-width: 10%">
+    </div> 
+</div>

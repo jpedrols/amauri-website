@@ -11,3 +11,9 @@
 <script src="{{ asset('sistema/assets/js/pages/dashboard.init.js') }}"></script>
 
 <script src="{{ asset('sistema/assets/js/app.js') }}"></script>
+
+<script>
+    $(window).on('load', function () {
+      $('#spinner').hide();
+    }) 
+</script>

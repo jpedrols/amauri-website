@@ -31,16 +31,16 @@
                             <a href="{{ route('site.index') }}">Início</a>
                         </li>
                         <li>
-                            <a href="#sobre">Sobre</a>
+                            <a href="{{ route('site.sobre_nos') }}">Sobre</a>
                         </li>
                         <li>
-                            <a href="#solucoes">Soluções</a>
+                            <a href="{{ route('site.index') }}#solucoes">Soluções</a>
                         </li>
                         <li>
-                            <a href="#blog">Blog</a>
+                            <a href="{{ route('site.blogs') }}">Blog</a>
                         </li>
                         <li>
-                            <a href="#contato">Contato</a>
+                            <a href="{{ route('site.index') }}#contato">Contato</a>
                         </li>
                     </ul>
                 </div>

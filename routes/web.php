@@ -23,6 +23,9 @@ Route::name('site.')->group(function () {
         Route::get('/', [SiteController::class, 'index'])->name("index");
 
         Route::get('/A-Empresa', [SiteController::class, 'sobre_nos'])->name("sobre_nos");
+
+        Route::get('/Blog', [SiteController::class, 'blogs'])->name("blogs");
+        Route::get('/Blog/{blog}', [SiteController::class, 'blog_leitura'])->name("blog_leitura");
         // Route::get('/', 'App\Http\Controllers\GeralController@inicio')->name('inicio');
     });
 });
@@ -37,7 +40,7 @@ Route::name('sistema.')->group(function () {
 
         Route::middleware(['sistema'])->group(function () {
             
-            Route::get('/', [PainelController::class, 'dashboard'])->name("dashboard");
+            Route::get('/', [PainelController::class, 'dashboard'])->name("index");
             Route::get('/dashboard', [PainelController::class, 'dashboard'])->name("dashboard");
 
             Route::prefix('paginas')->group(function () {    

@@ -46,11 +46,11 @@
                                 </div>
                                 <h3>{{ $blog->titulo }}</h3>
                                 <p>{!! Str::limit($blog->conteudo, 78) !!}</p>
-                                <a href="post.html" class="simple--underline" >Ver mais</a
+                                <a href="{{ route('site.blog_leitura', ['blog' => $blog]) }}" class="simple--underline" >Ver mais</a
                                 >
                             </div>
                         </div>
-                        <a href="post.html" class="link"></a>
+                        <a href="{{ route('site.blog_leitura', ['blog' => $blog]) }}" class="link"></a>
                     </article>
                     <!--  END: Single Article  -->
                 </div>
