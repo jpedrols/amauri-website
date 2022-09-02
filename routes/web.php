@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AmauriRespondesController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\DestaquesController;
 use App\Http\Controllers\PainelController;
@@ -63,6 +64,15 @@ Route::name('sistema.')->group(function () {
 
             Route::prefix('destaques')->group(function () {    
                 Route::get('/consultar', [DestaquesController::class, 'consultar'])->name("destaques.consultar");
+            });
+
+            Route::prefix('amauri_responde')->group(function () {    
+                Route::get('/consultar', [AmauriRespondesController::class, 'consultar'])->name("amauri_responde.consultar");
+                Route::get('/cadastro', [AmauriRespondesController::class, 'cadastro'])->name("amauri_responde.cadastro");
+                Route::post('/cadastrar', [AmauriRespondesController::class, 'cadastrar'])->name("amauri_responde.cadastrar");
+
+                Route::get('/edicao/{amauri_responde}', [AmauriRespondesController::class, 'edicao'])->name("amauri_responde.edicao");
+                Route::post('/salvar/{amauri_responde}', [AmauriRespondesController::class, 'salvar'])->name("amauri_responde.salvar");
             });
 
         });

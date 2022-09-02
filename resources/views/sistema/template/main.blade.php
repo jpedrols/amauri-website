@@ -124,7 +124,7 @@
                                                     <a href="{{ route('sistema.paginas.consultar') }}" class="dropdown-item" key="t-alerts">Páginas</a>
                                                     <a href="{{ route('sistema.destaques.consultar') }}" class="dropdown-item" key="t-alerts">Destaques</a>
                                                     <a href="{{ route('sistema.blogs.consultar') }}" class="dropdown-item" key="t-buttons">Blog</a>
-                                                    <a href="#" class="dropdown-item" key="t-buttons">Amauri Responde</a>
+                                                    <a href="{{ route('sistema.amauri_responde.consultar') }}" class="dropdown-item" key="t-buttons">Amauri Responde</a>
                                                 </div>
                                             </div>
                                         </div>

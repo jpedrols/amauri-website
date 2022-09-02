@@ -13,11 +13,7 @@
                         </h2>
                     </div>
                     <div class="wrapper">
-                        <a
-                            href="#"
-                            class="btn--big--round"
-                            >Ver tudo</a
-                        >
+                        <a href="{{ route('site.blogs') }}" class="btn--big--round">Ver tudo</a>
                     </div>
                 </div>
             </div>

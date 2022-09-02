@@ -55,10 +55,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-8">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="card mini-stats-wid">
                                     <div class="card-body">
                                         <div class="media">
@@ -76,7 +74,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="card mini-stats-wid">
                                     <div class="card-body">
                                         <div class="media">
@@ -94,18 +92,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="card mini-stats-wid">
                                     <div class="card-body">
                                         <div class="media">
                                             <div class="media-body">
-                                                <p class="text-muted fw-medium">Average Price</p>
-                                                <h4 class="mb-0">$16.2</h4>
+                                                <p class="text-muted fw-medium">Álbuns</p>
+                                                <h4 class="mb-0">14</h4>
                                             </div>
 
                                             <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
                                                 <span class="avatar-title rounded-circle bg-primary">
-                                                    <i class="bx bx-purchase-tag-alt font-size-24"></i>
+                                                    <i class="bx bxs-photo-album font-size-24"></i>
                                                 </span>
                                             </div>
                                         </div>
@@ -113,7 +111,74 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-xl-8">
                         <!-- end row -->
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-4">#AmauriResponde</h4>
+                                        <hr>
+                                        <div class="d-flex" style="justify-content: space-between">
+                                            @foreach ($amauri_responde as $video)
+                                                <div class="col-lg-5">
+                                                    <div class="card plan-box">
+                                                        <div class="card-body p-4">
+                                                            <div class="media">
+                                                                <div class="media-body">
+                                                                    <h5>{{ $video->titulo }}</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="py-4 text-center">
+                                                                <img style="max-width: 20%; height: auto;" src="{{ asset($video->imagem) }}">
+                                                            </div>
+                                                            <div class="text-center plan-btn">
+                                                                <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-4">Álbuns</h4>
+                                        <hr>
+                                        <div class="d-flex" style="justify-content: space-between">
+                                            @foreach ($albuns as $album)
+                                                <div class="col-lg-5">
+                                                    <div class="card plan-box">
+                                                        <div class="card-body p-4">
+                                                            <div class="media">
+                                                                <div class="media-body">
+                                                                    <h5>{{ $album->titulo }}</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="py-4 text-center">
+                                                                <img style="max-width: 20%; height: auto" src="{{ asset($album->thumb) }}">
+                                                            </div>
+                                                            <div class="text-center plan-btn">
+                                                                <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- end row -->
@@ -123,6 +188,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title mb-4">Páginas</h4>
+                                <hr>
                                 <div class="table-responsive">
                                     <table class="table align-middle table-nowrap mb-0">
                                         <thead class="table-light">

@@ -95,7 +95,7 @@
                 <div
                     class="wrapper justify-content-md-between align-items-md-center"
                 >
-                    <div class="link">
+                    {{-- <div class="link">
                         <div class="list-element--text--inline">
                             <ul>
                                 <li>
@@ -110,7 +110,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="text">
                         <p>
                             <p>

@@ -25,9 +25,15 @@ return new class extends Migration
 
         //
         DB::table('paginas')->insert([
+            'nome' => 'Início',
+            'titulo' => 'Seja Bem-Vindo(a) a Amauri Contabilidade',
+            'conteudo' => 'Nossa empresa está no mercado há 27 anos e tem como missão levar inovação nos processos burocráticos da sua empresa.',
+        ]);
+
+        DB::table('paginas')->insert([
             'nome' => 'Sobre nós',
-            'titulo' => 'Cuidamos da contabilidade do seu negócio como se fosse a nossa!',
-            'conteudo' => 'Nosso objetivo é simplificar e reduzir a burocracia no mundo contábil para você, pois queremos que você dedique sua energia à gestão de sua empresa. Temos uma equipe qualificada com atendimento rápido e personalizado oferecendo soluções eficientes para micro empresas até grandes corporações.',
+            'titulo' => 'Sobre nós, somos uma empresa de contabilidade que há mais de 27 anos cuidamos dos processos burocráticos da sua empresa',
+            'conteudo' => '-',
         ]);
     }
 

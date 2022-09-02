@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
+use App\Models\AmauriResponde;
 use App\Models\Pagina;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -48,7 +50,15 @@ class PainelController extends Controller
 
         $paginas = Pagina::orderBy('titulo', 'asc')->get();
 
-        return view("sistema.dashboard", ['usuario' => $usuario, 'paginas' => $paginas]);
+        $amauri_responde = AmauriResponde::orderBy('id', 'desc')
+        ->limit(2)
+        ->get();
+
+        $albuns = Album::orderBy('id', 'desc')
+        ->limit(2)
+        ->get();
+
+        return view("sistema.dashboard", ['usuario' => $usuario, 'paginas' => $paginas, 'amauri_responde' => $amauri_responde, 'albuns' => $albuns]);
     }
 
     // ------------------------------------------------------------

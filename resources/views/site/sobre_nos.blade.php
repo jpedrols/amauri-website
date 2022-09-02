@@ -1,25 +1,17 @@
-@extends('site.template.main', ['titulo' => 'Amauri Contabilidade - Blog Leitura'])
+@extends('site.template.main', ['titulo' => 'Amauri Contabilidade - Sobre nós'])
 
 @section('content')
 
 <!--  Page Header  -->
 <div class="page-header--image" data-overlay>
     <div
-        class="imagebg"
-        style="
-            background-image: url({{ asset('site/assets/img/about-header@2x.jpg') }});
-        "
-    ></div>
+        class="imagebg" style="background-image: url({{ asset($destaque_banner->imagem) }});"></div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="sectiontitle-element--light--center">
                     <h1>Sobre nós</h1>
-                    <p>
-                        Donec laoreet lobortis faucibus. Sed laoreet
-                        maximus urna, vitae condimentum sem feugiat
-                        in.
-                    </p>
+                    <p>{{$pagina->titulo}}</p>
                 </div>
             </div>
         </div>
@@ -31,50 +23,23 @@
     <!--  Services  -->
     <section data-padding="sm">
         <div class="container">
-            <div
-                data-aos="fade-up"
-                class="row"
-                data-padding="xstop"
-            >
+            <div data-aos="fade-up" class="row" data-padding="xstop">
                 <div class="col-12 col-lg-4">
                     <div class="sectiontitle-element--full">
-                        <h2>Estratégia e Direção de Arte</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Ducimus dicta veniam
-                            recusandae numquam aut. Tenetur dolor
-                            perferendis cumque repellat! Dolore,
-                            commodi dolores magni tenetur nam
-                            sapiente nesciunt labore mollitia
-                            voluptas.
-                        </p>
+                        <h2>Torne sua empresa lucrativa através dos nossos serviços</h2>
+                        <p>A Amauri Contabilidade é uma empresa de contabilidade construída especificamente para #descomplicar seu setor financeiro. Com atendimento humanizado permitimos que você se livre de dores de cabeça financeiras e se concentre em outras áreas do seu negócio.</p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="sectiontitle-element--full">
-                        <h2>Design de UX/UI do Site</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit. Ad temporibus error
-                            facilis aut vitae voluptas dicta,
-                            impedit earum corrupti fugit quisquam
-                            esse praesentium assumenda pariatur,
-                            quia cupiditate iusto. Dignissimos,
-                            soluta.
-                        </p>
+                        <h2>O que você está fazendo para sua empresa hoje?</h2>
+                        <p>Contratar um serviço contábil é cuidar da sua empresa. Uma gestão financeira garantirá que você não tenha problemas legais e o avisará sobre riscos futuros.</p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="sectiontitle-element--full">
-                        <h2>Marketing & Social</h2>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur
-                            adipisicing elit. Nemo dolore voluptatum
-                            quas illo inventore molestias omnis aut
-                            ullam, perferendis possimus dolores,
-                            expedita, fugit et exercitationem quasi
-                            rerum tenetur eligendi voluptate!
-                        </p>
+                        <h2>Suporte em tempo real </h2>
+                        <p>Com uma equipe especializada em atendimento contábil, com a Amauri contabilidade você tem a resolução do seu problema em tempo real. Nosso time está sempre preparado para oferecer soluções efetivas para #descomplicar a vida financeira do seu negócio </p>
                     </div>
                 </div>
             </div>
@@ -90,53 +55,24 @@
             >
                 <div class="col-12 col-lg-6">
                     <div class="wrapimage-element--square">
-                        <img
-                            data-unveil
-                            src="#"
-                            data-src="{{ asset('site/assets/img/about-gallery.jpg') }}"
-                            data-src-retina="{{ asset('site/assets/img/about-gallery@2x.jpg') }}"
-                            alt=""
-                        />
+                        <img data-unveil src="#" data-src="{{ asset($destaque_secao1->imagem) }}" data-src-retina="{{ asset('site/assets/img/about-gallery@2x.jpg') }}" alt=""/>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
                     <div class="sectiontitle-element">
-                        <h2>
-                            Somos uma equipe aspirante de
-                            desenvolvedores criativos
-                        </h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Ducimus dicta veniam
-                            recusandae numquam aut. Tenetur dolor
-                            perferendis cumque repellat! Dolore,
-                            commodi dolores magni tenetur nam
-                            sapiente nesciunt labore mollitia
-                            voluptas.
-                        </p>
+                        <h2>Nosso compromisso é com o sucesso do seu negócio </h2>
+                        <p>A Amauri Contabilidade é uma empresa comprometida com o sucesso dos seus clientes. Isso significa que estamos sempre à disposição para ajudá-los a alcançar seus objetivos, seja através da prestação de consultoria ou do fornecimento de ferramentas e soluções adequadas às suas necessidades. Nosso objetivo é garantir que você consiga resultados satisfatórios em todos os aspectos do seu negócio.</p>
                         <div class="separator-element"></div>
-                        <div
-                            class="icon-element--testimonial--small"
-                        >
+                        <div class="icon-element--testimonial--small">
                             <div class="info">
                                 <div class="text--inline">
-                                    <p>
-                                        "Lorem ipsum dolor, sit amet
-                                        consectetur adipisicing
-                                        elit. In, suscipit? Qui in
-                                        voluptate esse cumque neque,
-                                        magni, voluptates
-                                        perspiciatis possimus eos
-                                        deserunt explicabo, totam a
-                                        numquam? Blanditiis
-                                        architecto corporis error!"
-                                    </p>
-                                    <span class="author"
+                                    <p>Apostar no sucesso do negócio de outra pessoa é uma tarefa que exige dedicação e comprometimento. Por isso, estamos sempre empenhados em oferecer os melhores serviços e soluções para que o seu empreendimento prospere. Faça parte desse time de sucesso e entre em contato conosco!</p>
+                                    {{-- <span class="author"
                                         >Everaldo</span
                                     >
                                     <span class="meta"
                                         >Desenvolvedor</span
-                                    >
+                                    > --}}
                                 </div>
                             </div>
                         </div>
@@ -149,44 +85,24 @@
     <!--  Image and Text  -->
     <section data-padding>
         <div class="container">
-            <div
-                data-aos="fade-up"
-                class="row align-items-lg-center"
-            >
+            <div data-aos="fade-up" class="row align-items-lg-center">
                 <div class="col-12 col-lg-6 col-xl-5">
                     <div class="sectiontitle-element">
-                        <h2>
-                            Formamos parcerias e construímos ótimos
-                            produtos
-                        </h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Ducimus dicta veniam
-                            recusandae numquam aut. Tenetur dolor
-                            perferendis cumque repellat! Dolore,
-                            commodi dolores magni tenetur nam
-                            sapiente nesciunt labore mollitia
-                            voluptas.
-                        </p>
+                        <h2>Vem para a Amauri Contabilidade</h2>
+                        <p>Venha conhecer a Amauri Contabilidade e confira os serviços que oferecemos! Temos certeza de que você vai se surpreender com a qualidade e a eficiência dos nossos serviços.</p>
                         <div class="list-element--plus">
                             <ul>
-                                <li>Pellentesque maximus</li>
-                                <li>Quisque vitae facilisis sem</li>
-                                <li>Cras ultricies</li>
-                                <li>Orci varius natoque</li>
+                                <li>Processamento contábil</li>
+                                <li>Certidão Federal</li>
+                                <li>Análise tributária</li>
+                                <li>Emissão de certificados digitais online</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-6 offset-xl-1">
                     <div class="wrapimage-element--square">
-                        <img
-                            data-unveil
-                            src="#"
-                            data-src="{{ asset('site/assets/img/about-gallery-2.jpg') }}"
-                            data-src-retina="{{ asset('site/assets/img/about-gallery-2@2x.jpg') }}"
-                            alt=""
-                        />
+                        <img data-unveil src="#" data-src="{{ asset($destaque_secao2->imagem) }}" data-src-retina="{{ asset('site/assets/img/about-gallery-2@2x.jpg') }}" alt=""/>
                     </div>
                 </div>
             </div>
@@ -200,11 +116,7 @@
                 <div class="col-12">
                     <div class="sectiontitle-element--center">
                         <h2>Nossos Líderes</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Ipsum a quibusdam
-                            vitae ab obcaecati dolores.
-                        </p>
+                        <p>Amauri  é capaz de oferecer soluções eficientes para os problemas contábeis de suas clientes. Com mais de 27 anos de experiência tem conhecimento necessário para direcionar sua equipe e fazer seu negócio decolar </p>
                     </div>
                 </div>
             </div>

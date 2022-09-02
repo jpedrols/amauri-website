@@ -1,4 +1,4 @@
-@extends('site.template.main', ['titulo' => 'Amauri Contabilidade - Blog Leitura'])
+@extends('site.template.main', ['titulo' => 'Amauri Contabilidade - Lista de Blogs'])
 
 @section('content')
 <div class="page-header" data-padding>

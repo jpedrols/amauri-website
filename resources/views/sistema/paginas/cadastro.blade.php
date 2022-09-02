@@ -70,11 +70,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- end row -->
                 
-            </div> <!-- container-fluid -->
+            </div>
         </div>
-        <!-- End Page-content -->
         
         @include('sistema.footer')
 

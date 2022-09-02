@@ -24,10 +24,11 @@
         <div class="page-content">
             <div class="container-fluid">
 
-                <input form="cadastro" value="Salvar" type="submit" class="btn btn-primary waves-effect waves-light float-end">
-                <div style="clear:both"></div>
+                {{-- <input form="cadastro" value="Salvar" type="submit" class="btn btn-primary waves-effect waves-light float-end">
+                <div style="clear:both"></div> --}}
                 <br>
-
+                <br>
+                
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
@@ -58,7 +59,7 @@
 
                                         <div class="col-lg-12">
                                             <label class="form-label">Conteúdo</label>
-                                            <textarea required id="editor" name="conteudo">
+                                            <textarea rows="20" class="form-control" required id="editor" name="conteudo">
                                                 {{ $pagina->conteudo }}
                                             </textarea>
                                         </div>
@@ -80,15 +81,6 @@
         @include('sistema.footer')
 
         @section('scripts')
-            <script src="https://cdn.ckeditor.com/ckeditor5/35.0.1/classic/ckeditor.js"></script>
-
-            <script>
-                ClassicEditor
-                    .create( document.querySelector( '#editor' ) )
-                    .catch( error => {
-                        console.error( error );
-                    } );
-            </script>
         @endsection
     </div>
 @endsection

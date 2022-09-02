@@ -24,23 +24,29 @@ return new class extends Migration
             $table->timestamp('updated_at')->useCurrent();
         });
 
-        //
+
         DB::table('destaques')->insert([
             'nome' => 'Banner',
             'pagina_id' => 1,
-            'imagem' => 'sistema/imagens/destaques/1/sobre_nos_banner.jpg',
+            'imagem' => 'sistema/imagens/destaques/1/destaque.jpg',
+        ]);
+        //
+        DB::table('destaques')->insert([
+            'nome' => 'Banner',
+            'pagina_id' => 2,
+            'imagem' => 'sistema/imagens/destaques/2/sobre_nos_banner.jpg',
         ]);
 
         DB::table('destaques')->insert([
             'nome' => 'Seção 1',
-            'pagina_id' => 1,
-            'imagem' => 'sistema/imagens/destaques/1/sobre_nos_secao_1.jpg',
+            'pagina_id' => 2,
+            'imagem' => 'sistema/imagens/destaques/2/sobre_nos_secao_1.jpg',
         ]);
 
         DB::table('destaques')->insert([
             'nome' => 'Seção 2',
-            'pagina_id' => 1,
-            'imagem' => 'sistema/imagens/destaques/1/sobre_nos_secao_2.jpg',
+            'pagina_id' => 2,
+            'imagem' => 'sistema/imagens/destaques/2/sobre_nos_secao_2.jpg',
         ]);
     }
 
