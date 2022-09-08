@@ -3,6 +3,8 @@
 
     @include('sistema.includes.head')
 
+    @livewireStyles
+
     @php
         use App\Models\Usuario;
         $usuario = Usuario::find(session()->get('usuario')['id']);
@@ -153,6 +155,8 @@
         <div class="rightbar-overlay"></div>
 
         @include('sistema.includes.scripts')
+
+        @livewireScripts
 
         @yield('scripts')
     </body>

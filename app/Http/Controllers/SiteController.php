@@ -5,10 +5,81 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Destaque;
 use App\Models\Pagina;
+use App\Models\Visita;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\DB;
 
 class SiteController extends Controller
 {
+    public function CountView(Request $request) {
+        if(!$request->uuid) {
+            $uuid = Uuid::uuid4();
+    
+            $visita = new Visita();
+            $visita->id = $uuid;
+            $visita->save();
+
+            return $uuid;
+        } else {
+            $visita = Visita::whereId($request->uuid)
+            ->where(DB::raw("DATE_FORMAT(updated_at, '%Y-%m-%d %H:%i')"), now()->format('Y-m-d H:i'))
+            ->first();
+            if($visita) {
+                $visita->touch();
+
+                return $request->uuid;
+            } else {
+                $uuid = Uuid::uuid4();
+    
+                $visita = new Visita();
+                $visita->id = $uuid;
+                $visita->save();
+
+                return $uuid;
+            }
+        }
+    }
+
+    public function ReturnView() {
+
+        $segundos_atual = 0;
+        $segundos_passado = 60;
+        $views = array();
+        $minutos = array();
+
+        for ($i=0; $i < 15; $i++) { 
+            $minuto_passado = time() - $segundos_passado;
+            // $atual = date("Y-m-d H:i:s", time() - $segundos_atual);
+            // $passado = date("Y-m-d H:i:s", $minuto_passado);
+    
+            $visitas = Visita::where(DB::raw("DATE_FORMAT(updated_at, '%Y-%m-%d %H:%i')"), date('Y-m-d') . " " . date("H:i", strtotime("-".$i." minutes")))
+            ->get();
+
+            // echo date('Y-m-d') . date("H:i", strtotime("-".$i." minutes")) . "<br>";
+            // echo "OO:". $visitas. "<br>";
+            // echo '---------------- <br>';
+
+            // echo $visitas->count(). "<br>";
+            // echo $atual . "<br>";
+            // echo $passado . "<br>";
+            // echo "----------<br>";
+
+            array_push($views, $visitas->count());
+            array_push($minutos, date("H:i", $minuto_passado));
+
+            $segundos_passado = $segundos_passado + 60;
+            $segundos_atual = $segundos_atual + 60;
+        }
+
+        $views = array_reverse($views);
+        $minutos = array_reverse($minutos);
+
+        $resultado_geral = array($views, $minutos);
+        
+        return $resultado_geral;
+    }
+
     public function index() {
         $blogs = Blog::orderBy('id', 'desc')->get();
 

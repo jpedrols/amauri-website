@@ -29,7 +29,7 @@
                                             @foreach ($paginas as $pagina)
                                                 <tr>
                                                     <td>{{ $pagina->nome }}</td>
-                                                    <td>{{ $pagina->titulo }}</td>
+                                                    <td>{{ Str::limit($pagina->titulo, 77) }}</td>
                                                     <td>{{ $pagina->visualizacoes }}</td>
                                                     <td>
                                                         <!-- Button trigger modal -->

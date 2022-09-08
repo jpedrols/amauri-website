@@ -29,6 +29,10 @@ Route::name('site.')->group(function () {
         Route::get('/Blog/{blog}', [SiteController::class, 'blog_leitura'])->name("blog_leitura");
         // Route::get('/', 'App\Http\Controllers\GeralController@inicio')->name('inicio');
     });
+
+    // AJAX
+    Route::get('/contabiliza_views/{uuid}', [SiteController::class, 'CountView'])->name("contabilizar_view");
+    Route::get('/retorna_views', [SiteController::class, 'ReturnView'])->name("retorna_view");
 });
 
 

@@ -55,8 +55,7 @@
                                 </div>
                             </div>
                         </div>
-                        <br><br>
-                        <div class="row">
+                        <div class="row" style="margin-top: 70px">
                             <div class="col-md-12">
                                 <div class="card mini-stats-wid">
                                     <div class="card-body">
@@ -114,16 +113,14 @@
                         </div>
                     </div>
                     <div class="col-xl-8">
-                        <!-- end row -->
                         <div class="row">
-
-                            <div class="col-lg-12">
+                            <div class="col-lg-12" >
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title mb-4">#AmauriResponde</h4>
                                         <hr>
                                         <div class="d-flex" style="justify-content: space-between">
-                                            @if($albuns->count() > 0)
+                                            @if($amauri_responde->count() > 0)
                                                 @foreach ($amauri_responde as $video)
                                                     <div class="col-lg-5">
                                                         <div class="card plan-box">
@@ -134,7 +131,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="py-4 text-center">
-                                                                    <img style="max-width: 20%; height: auto;" src="{{ asset($video->imagem) }}">
+                                                                    <img style="max-width: 50%; height: auto;" src="{{ asset($video->imagem) }}">
                                                                 </div>
                                                                 <div class="text-center plan-btn">
                                                                     <a href="{{ route('sistema.amauri_responde.edicao', ['amauri_responde' => $video]) }}" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
@@ -153,7 +150,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="py-4 text-center">
-                                                                <img style="max-width: 20%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
+                                                                <img style="max-width: 50%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
                                                             </div>
                                                             <div class="text-center plan-btn">
                                                                 <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
@@ -171,7 +168,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="py-4 text-center">
-                                                                <img style="max-width: 20%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
+                                                                <img style="max-width: 50%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
                                                             </div>
                                                             <div class="text-center plan-btn">
                                                                 <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
@@ -184,9 +181,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
-
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
@@ -205,7 +200,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="py-4 text-center">
-                                                                    <img style="max-width: 20%; height: auto" src="{{ asset($album->thumb) }}">
+                                                                    <img style="max-width: 50%; height: auto" src="{{ asset($album->thumb) }}">
                                                                 </div>
                                                                 <div class="text-center plan-btn">
                                                                     <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
@@ -224,7 +219,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="py-4 text-center">
-                                                                <img style="max-width: 20%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
+                                                                <img style="max-width: 50%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
                                                             </div>
                                                             <div class="text-center plan-btn">
                                                                 <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
@@ -242,7 +237,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="py-4 text-center">
-                                                                <img style="max-width: 20%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
+                                                                <img style="max-width: 50%; height: auto" src="{{ asset('sistema/imagens/usuarios/sem_foto.png') }}">
                                                             </div>
                                                             <div class="text-center plan-btn">
                                                                 <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Editar</a>
@@ -260,6 +255,17 @@
                     </div>
                 </div>
                 <!-- end row -->
+
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Acessos em tempo real</h4>
+                            <div>
+                                <canvas id="myChart" height="140"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-lg-12">
@@ -301,11 +307,107 @@
                     </div>
                 </div>
                 <!-- end row -->
+
                 
             </div> <!-- container-fluid -->
         </div>
         <!-- End Page-content -->
+
+        @section('scripts')
+            <script src="{{ asset('sistema/assets/libs/chart.js/Chart.bundle.min.js') }}"></script>
+            <script src="{{ asset('sistema/assets/js/chart.min.js') }}"></script>
+
+            <script>
+                var canvas = document.getElementById('myChart');
+                var data = {
+                    labels: ["11:04", "11:05", "11:06", "11:07", "11:08", "11:09", "agora"],
+                    datasets: [
+                        {
+                            label: "Visualizações por minuto",
+                            fill: false,
+                            lineTension: 0.1,
+                            backgroundColor: "rgba(75,192,192,0.4)",
+                            borderColor: "rgba(75,192,192,1)",
+                            borderCapStyle: 'butt',
+                            borderDash: [],
+                            borderDashOffset: 0.0,
+                            borderJoinStyle: 'miter',
+                            pointBorderColor: "rgba(75,192,192,1)",
+                            pointBackgroundColor: "#fff",
+                            pointBorderWidth: 1,
+                            pointHoverRadius: 5,
+                            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                            pointHoverBorderColor: "rgba(220,220,220,1)",
+                            pointHoverBorderWidth: 2,
+                            pointRadius: 5,
+                            pointHitRadius: 10,
+                            data: [0, 0, 0, 0, 0, 0, 0],
+                        }
+                    ]
+                };
+
+                setInterval(() => {
+                    jQuery.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: "{{ url('/retorna_views/') }}",
+                        method: 'get',
+                        data: {},
+                        success: function(result){
+                            myLineChart.data.datasets[0].data = result[0];
+
+                            myLineChart.data.labels = result[1];
+                            myLineChart.data.dataset = result[1];
+
+                            myLineChart.update();
+
+                            // console.log(result);
+                        },
+                        error: function(){
+                            console.log('Ajax não funcionou');
+                        }
+                    });
+                }, 1000);
+
+                // setInterval(() => {
+                //     jQuery.ajax({
+                //         headers: {
+                //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                //         },
+                //         url: "{{ url('/contabiliza_views/{uuid}') }}",
+                //         method: 'get',
+                //         data: {
+                //             uuid: window.localStorage.getItem('uuid')
+                //         },
+                //         success: function(result){
+                //             window.localStorage.setItem('uuid', result);
+                //         },
+                //         error: function(){
+                //             console.log('Ajax não funcionou');
+                //         }
+                //     });
+
+                //     var newData=[1,2,3,4,5,6,7];
+                //     // for(var i=0;i<7;i++){
+                //     //     newData.push(Math.round(Math.random() * 100))
+                //     // }
+                //     myLineChart.data.datasets[0].data =newData;
+                //     myLineChart.update();
+                // }, 1000);
+
+                var option = {
+                    showLines: true,
+                };
+                    var myLineChart = Chart.Line(canvas,{
+                        data:data,
+                        options:option
+                    });
+            </script>
+        @endsection
         
         @include('sistema.footer')
+        
+        
     </div>
 @endsection
